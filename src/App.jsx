@@ -1,7 +1,7 @@
 import './App.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import AddTeam from './Components/AddTeam'
-import ViewTeams from './Components/ViewTeams'
+import AddTeam from './Components/AddVehicle'
+import ViewBookings from './Components/ViewBookings'
 
 function App() {
 
@@ -10,7 +10,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<AddTeam />}></Route>
-          <Route path='/view-teams' element={<ViewTeams />}></Route>
+          <Route path='/view-bookings' element={<ViewBookings />}></Route>
         </Routes>
       </BrowserRouter>
     </>
