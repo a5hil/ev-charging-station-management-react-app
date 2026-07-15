@@ -7,19 +7,19 @@ const AddVehicle = () => {
 
     const [input, changeInput] = useState(
         {
-            teamId: "",
-            teamName: "",
-            teamLeaderName: "",
-            leaderEmail: "",
-            leaderPhone: "",
-            collegeName: "",
-            numberOfMembers: "",
-            projectTitle: "",
-            problemStatement: "",
-            technologyStack: "",
-            mentorName: "",
-            registrationDate: "",
-            stationNumber: ""
+            bookingId: "",
+            ownerName: "",
+            email: "",
+            phone: "",
+            vehicleRegNo: "",
+            vehicleBrand: "",
+            vehicleModel: "",
+            batteryCapacity: "",
+            connectorType: "",
+            chargingDate: "",
+            timeSlot: "",
+            estimatedUnit: "",
+            chargingBayNo: ""
         }
     )
 
@@ -29,15 +29,15 @@ const AddVehicle = () => {
 
     const readValue = () => {
         console.log(input)
-        axios.post('http://localhost:3000/add-team', input).then(
+        axios.post('http://localhost:3000/add-vehicle', input).then(
             (response) => {
                 console.log(response.data)
-                alert("Team added successfully")
+                alert("Vehicle added successfully")
             }
         ).catch(
             (error) => {
                 console.log(error)
-                alert("Error adding team")
+                alert("Error adding vehicle")
             }
         )
     }
@@ -45,62 +45,62 @@ const AddVehicle = () => {
     return (
         <div>
             <NavBar />
-            <h2 className="text-center p-5">Team Management</h2>
+            <h2 className="text-center p-5">Vehicle Booking</h2>
             <div className="container">
                 <div className="row">
                     <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                         <div className="row g-4">
                             <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                                <label htmlFor="" className="form-label">Team ID</label>
-                                <input type="text" className="form-control" name="teamId" value={input.teamId} onChange={inputHandler} placeholder="Enter Team ID" />
+                                <label htmlFor="" className="form-label">Booking ID</label>
+                                <input type="text" className="form-control" name="bookingId" value={input.bookingId} onChange={inputHandler} placeholder="Enter Booking ID" />
                             </div>
                             <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                                <label htmlFor="" className="form-label">Team Name</label>
-                                <input type="text" className="form-control" name="teamName" value={input.teamName} onChange={inputHandler} placeholder="Enter Team Name" />                                  
+                                <label htmlFor="" className="form-label">Owner Name</label>
+                                <input type="text" className="form-control" name="ownerName" value={input.ownerName} onChange={inputHandler} placeholder="Enter Owner Name" />                                  
                             </div>                         
                             <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                                <label htmlFor="" className="form-label">Team Leader Name</label>
-                                <input type="text" className="form-control" name="teamLeaderName" value={input.teamLeaderName} onChange={inputHandler} placeholder="Enter Team Leader Name" />
+                                <label htmlFor="" className="form-label">Email</label>
+                                <input type="email" className="form-control" name="email" value={input.email} onChange={inputHandler} placeholder="Enter Email" />
                             </div>
                             <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                                <label htmlFor="" className="form-label">Leader Email</label>
-                                <input type="email" className="form-control" name="leaderEmail" value={input.leaderEmail} onChange={inputHandler} placeholder="Enter Leader Email" />
+                                <label htmlFor="" className="form-label">Phone</label>
+                                <input type="tel" className="form-control" name="phone" value={input.phone} onChange={inputHandler} placeholder="Enter Phone" />
                             </div>
                             <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                                <label htmlFor="" className="form-label">Leader Phone</label>
-                                <input type="tel" className="form-control" name="leaderPhone" value={input.leaderPhone} onChange={inputHandler} placeholder="Enter Leader Phone" />
+                                <label htmlFor="" className="form-label">Registration Number</label>
+                                <input type="text" className="form-control" name="vehicleRegNo" value={input.vehicleRegNo} onChange={inputHandler} placeholder="Enter Registration Number" />
                             </div>
                             <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                                <label htmlFor="" className="form-label">College Name</label>
-                                <input type="text" className="form-control" name="collegeName" value={input.collegeName} onChange={inputHandler} placeholder="Enter College Name" />
+                                <label htmlFor="" className="form-label">Vehicle Brand</label>
+                                <input type="text" className="form-control" name="vehicleBrand" value={input.vehicleBrand} onChange={inputHandler} placeholder="Enter Vehicle Brand" />
                             </div>
                             <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                                <label htmlFor="" className="form-label">Number of Members</label>
-                                <input type="number" className="form-control" name="numberOfMembers" value={input.numberOfMembers} onChange={inputHandler} placeholder="Enter Number of Members" />
+                                <label htmlFor="" className="form-label">Vehicle Model</label>
+                                <input type="text" className="form-control" name="vehicleModel" value={input.vehicleModel} onChange={inputHandler} placeholder="Enter Vehicle Model" />
                             </div>
                             <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                                <label htmlFor="" className="form-label">Project Title</label>
-                                <input type="text" className="form-control" name="projectTitle" value={input.projectTitle} onChange={inputHandler} placeholder="Enter Project Title" />
+                                <label htmlFor="" className="form-label">Battery Capacity(kWh)</label>
+                                <input type="text" className="form-control" name="batteryCapacity" value={input.batteryCapacity} onChange={inputHandler} placeholder="Enter Battery Capacity" />
                             </div>
                             <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                                <label htmlFor="" className="form-label">Problem Statement</label>
-                                <textarea className="form-control" name="problemStatement" value={input.problemStatement} onChange={inputHandler} placeholder="Enter Problem Statement"></textarea>
+                                <label htmlFor="" className="form-label">Connector Type</label>
+                                <input type="text" className="form-control" name="connectorType" value={input.connectorType} onChange={inputHandler} placeholder="Enter Connector Type" />
                             </div>
                             <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                                <label htmlFor="" className="form-label">Technology Stack</label>
-                                <input type="text" className="form-control" name="technologyStack" value={input.technologyStack} onChange={inputHandler} placeholder="Enter Technology Stack" />
+                                <label htmlFor="" className="form-label">Charging Date</label>
+                                <input type="date" className="form-control" name="chargingDate" value={input.chargingDate} onChange={inputHandler} />
                             </div>
                             <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                                <label htmlFor="" className="form-label">Mentor Name</label>
-                                <input type="text" className="form-control" name="mentorName" value={input.mentorName} onChange={inputHandler} placeholder="Enter Mentor Name" />
+                                <label htmlFor="" className="form-label">Time Slot</label>
+                                <input type="text" className="form-control" name="timeSlot" value={input.timeSlot} onChange={inputHandler} placeholder="Enter Time Slot" />
                             </div>
                             <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                                <label htmlFor="" className="form-label">Registration Date</label>
-                                <input type="date" className="form-control" name="registrationDate" value={input.registrationDate} onChange={inputHandler} />
+                                <label htmlFor="" className="form-label">Estimated Units(kWh)</label>
+                                <input type="number" className="form-control" name="estimatedUnits" value={input.estimatedUnits} onChange={inputHandler} placeholder="Enter Estimated Units" />
                             </div>
                             <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                                <label htmlFor="" className="form-label">Table/Station Number</label>
-                                <input type="tel" className="form-control" name="stationNumber" value={input.stationNumber} onChange={inputHandler} placeholder="Enter Table/Station Number" />
+                                <label htmlFor="" className="form-label">Charging Bay Number</label>
+                                <input type="tel" className="form-control" name="chargingBayNo" value={input.chargingBayNo} onChange={inputHandler} placeholder="Enter Charging Bay Number" />
                             </div>
                             <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                                 <button className="btn btn-dark" onClick={readValue}>Submit</button>
